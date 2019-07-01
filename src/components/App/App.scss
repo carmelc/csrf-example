@@ -1,0 +1,22 @@
+.root {
+  text-align: left;
+  margin: 100px;
+  position: relative;
+}
+
+.header {
+  background-color: #222;
+  padding: 10px;
+  color: white;
+  font-size: 20pt;
+}
+
+.intro {
+  font-size: 15pt;
+}
+
+.logout {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
