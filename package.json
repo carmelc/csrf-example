@@ -8,11 +8,12 @@
     "email": "carmelc@wix.com"
   },
   "scripts": {
-    "start": "yoshi start --server=dist/server.js",
+    "start": "npm run patch-yoshi && yoshi start --server=dist/server.js",
     "pretest": "yoshi build",
-    "test": "yoshi test",
+    "test": "npm run patch-yoshi && yoshi test",
     "posttest": "yoshi lint --fix",
-    "release": "yoshi release"
+    "release": "yoshi release",
+    "patch-yoshi": "node ./dev/scripts/patch-yoshi.js"
   },
   "husky": {
     "hooks": {

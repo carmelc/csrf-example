@@ -80,7 +80,7 @@ class App extends React.Component<AppProps, AppState> {
         <h3 className={s.title} data-testid="app-title">
           {`Hi ${user.username}`}
         </h3>
-        <h3>{`Your balance is: ${user.balance}`}</h3>
+        <h3>{`Your balance is: $${user.balance}`}</h3>
         <form onSubmit={() => this.handleSubmit()}>
           <div className={'form-group'}>
             <label htmlFor="balance-to-pass">User to Pass Balance to:</label>
@@ -92,7 +92,7 @@ class App extends React.Component<AppProps, AppState> {
               onChange={ev => this.handleChangeTargetUser(ev)}
               required={true}
             />
-            <label htmlFor="amount-to-pass">Amount to pass:</label>
+            <label htmlFor="amount-to-pass">Amount to pass ($):</label>
             <input
               className="form-control"
               id="amount-to-pass"

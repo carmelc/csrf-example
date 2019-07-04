@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="${clientTopology.staticsBaseUrl}app#if(!${debug}).min#{end}.css">
+    <link rel="stylesheet" href="${staticsBaseUrl}app#if(!${debug}).min#{end}.css">
 
     <!-- Run `npx add-sentry -p legit-app -t [TEAM]` to add a valid Sentry link. More information at: https://github.com/wix-private/fed-infra/tree/master/add-sentry -->
 
@@ -27,6 +27,6 @@
       window.__LOCALE__ = '${locale}';
       window.__USER__ = '${user}';
     </script>
-    <script src="${clientTopology.staticsBaseUrl}app.bundle#if(!${debug}).min#{end}.js"></script>
+    <script src="${staticsBaseUrl}app.bundle#if(!${debug}).min#{end}.js"></script>
   </body>
 </html>

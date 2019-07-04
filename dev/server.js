@@ -47,7 +47,11 @@ function getUserByLogin(req) {
 function doLoginForUser(user, res) {
   const sessionId = uuidv1();
   user.sessionCookie = sessionId;
-  res.cookie('SESSIONID', sessionId, {maxAge: 900000, httpOnly: true});
+  res.cookie('SESSIONID', sessionId, {
+    maxAge: 900000,
+    httpOnly: true,
+    // sameSite: 'Strict'
+  });
 }
 
 function validateCsrf(req, res) {
@@ -116,6 +120,7 @@ app.post('/pass-money', (req, res) => {
 
 // Define a route to render our initial HTML.
 app.use('/app', (req, res) => {
+  const staticsBaseUrlDomain = req.get('host').split(':')[0];
   const user = getUserBySession(req);
   const injectedUser = user ? {
     username: user.username,
@@ -124,12 +129,11 @@ app.use('/app', (req, res) => {
 
   const html = renderVM({
     user: JSON.stringify(injectedUser),
-  });
+  }, staticsBaseUrlDomain);
 
   res.cookie(XSRF_COOKIE_NAME, uuidv1(), {
     maxAge: 900000,
     httpOnly: false,
-    // sameSite: 'Strict', //new attribute, removes the need for the header
   });
 
   res.send(html);
