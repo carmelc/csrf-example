@@ -71,6 +71,7 @@
       "react-dom": "ReactDOM",
       "@wix/fedops-logger": "fedopsLogger"
     },
-    "hmr": "auto"
+    "hmr": "auto",
+    "startUrl": "http://localhost:3000/app"
   }
 }
